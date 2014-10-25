@@ -127,6 +127,10 @@ module ActsAsVotable
       klass.joins(:votes_for).merge find_up_votes
     end
 
+    def get_up_voted klass, args = {}
+      klass.joins(:votes_for).merge find_up_votes(args)
+    end
+
     def get_down_voted klass
       klass.joins(:votes_for).merge find_down_votes
     end
